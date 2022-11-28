@@ -1,0 +1,44 @@
+#!/bin/bash
+dataset=$1
+device=$2
+
+model=RotatE          # Underlying KGE model
+log_step=500          # Number of iterations between intermediary log steps
+valid_step=5000       # Number of iterations between validations steps
+save_step=10000       # Number of iterations between save steps
+wu=5000	              # Number of warm-up iterations per phase
+ph=15000              # Number of iterations per phase
+lr=.0001              # Learning rate
+neg=128               # Number of negative example per positive example
+adv=1.                # Adverserial temperature
+bs=$((8192 / ${neg})) # Batch size (too be adjusted according to available memory)
+
+base="models/${model}_${dataset}_best"
+data="data/${dataset}"
+
+if [ "${dataset}" = "wikidata12k" ]
+then
+    mx=$(($ph * 3))
+    levels="CDY"
+    scope="d1100_1_1,d2019_6_30,${levels}"
+    dict="--no_dict"
+elif [ "${dataset}" = "yago11k" ]
+then
+    mx=$(($ph * 5))
+    levels="CDYMd"
+    scope="d1100_1_1,d2019_6_30,${levels}"
+    dict="--no_dict"
+elif [ "${dataset}" = "icews14" ]
+then
+    mx=$(($ph * 2))
+    levels="Md"
+    scope="d2014_1_1,d2014_12_30,${levels}"
+else
+    echo "Dataset must be one of 'yago11k', 'wikidata12k', 'icews14'"
+    exit -1
+fi
+save="models/${model}_${dataset}_${levels}_p${ph}_lr${lr}_n${neg}_adv${adv}"
+
+CUDA_VISIBLE_DEVICES=${device} python3 train.py -base ${base} -data ${data} -save ${save} --scope=${scope} --log_steps=${log_step} \
+       	       --valid_steps=${valid_step} --save_checkpoint_steps=${save_step} --max_steps=${mx} --batch_size=${bs} ${dict}      \
+	        -p ${ph} -n ${neg} -a ${adv} -lr ${lr} --warm_up_steps=${wu} --test_levels

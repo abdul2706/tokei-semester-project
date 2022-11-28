@@ -1,0 +1,23 @@
+#!/bin/bash
+model=$1
+device=$2
+batch_size=16
+time_sample=10
+dict=
+
+if [ "${dataset}" = "wikidata12k" ]
+then
+    dict="--no_dict"
+elif [ "${dataset}" = "yago11k" ]
+then
+   dict="--no_dict"
+elif [ "${dataset}" = "icews14" ]
+then
+   time_sample=-10
+else
+    echo "Dataset must be one of 'yago11k', 'wikidata12k', 'icews14'"
+    exit -1
+fi
+
+
+CUDA_VISIBLE_DEVICES=${device} python3 test.py -base ${model} --test_batch_size=${batch_size} --test_levels --test_ranking --test_time --test_scoping --time_sample=${time_sample} ${dict}
