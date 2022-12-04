@@ -12,7 +12,7 @@ from sklearn.metrics import roc_auc_score, accuracy_score, recall_score, precisi
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu") 
 
 def run(exp, examples=None, test_levels=False, test_time=False,
-        test_ranking=False, test_scoping=False):
+        test_ranking=False, test_scoping=False, scores_filename='TKGModel_test_scores'):
     args = exp.args
     scope = args.scope
     model = exp.model
@@ -66,7 +66,8 @@ def run(exp, examples=None, test_levels=False, test_time=False,
             logs = test_step(exp, test_dataset, triples2time=exp.triples2time,
                 sample_dates=sample_dates,
                 test_levels=test_levels, test_time=test_time,
-                test_ranking=test_ranking, test_scoping=test_scoping
+                test_ranking=test_ranking, test_scoping=test_scoping,
+                scores_filename=scores_filename
             )
             print('[phase]', phase)
             print('[logs[phase]]')
@@ -122,7 +123,7 @@ def run(exp, examples=None, test_levels=False, test_time=False,
 
 def test_step(exp, test_dataset, sample_dates=None, triples2time=None,
               test_levels=False, test_time=False, test_ranking=False,
-              test_scoping=False):
+              test_scoping=False, scores_filename='TKGModel_test_scores'):
     '''
     Evaluate the model on test or valid datasets
     '''
@@ -131,8 +132,13 @@ def test_step(exp, test_dataset, sample_dates=None, triples2time=None,
     model = exp.model
     args = exp.args
     scores_list = []
+    print('[test_dataset.dataset]', type(test_dataset.dataset), len(test_dataset.dataset))
 
     for pos_sample, pos_interval, phase in test_dataset:
+        print('[phase]', phase)
+        print('[pos_sample, pos_interval]', pos_sample.shape, pos_interval.shape)
+        print('[pos_sample]', pos_sample)
+        print('[pos_interval]', pos_interval)
         pos_sample = pos_sample.to(device)
         pos_interval = pos_interval.to(device)
 
@@ -146,7 +152,9 @@ def test_step(exp, test_dataset, sample_dates=None, triples2time=None,
         if test_levels:
             s, p, o, _, _ = model((pos_sample, pos_interval, None, None), phase, args.entities_only)
             # save scores
+            print('[s, p, o]', s.shape, p.shape, o.shape)
             scores = model.compute_scores(s, p, o, phase)
+            print('[scores.shape]', scores.shape)
             scores_list.append(scores.detach().cpu().numpy())
             predicted_times = model.activate(scores)
 
@@ -307,10 +315,10 @@ def test_step(exp, test_dataset, sample_dates=None, triples2time=None,
 
         batch += 1
         #print(batch, logs[phase])
-    print('[scores_list]', scores_list)
-    scores_list = np.concatenate(scores_list).flatten()
+    # print('[scores_list]', scores_list)
+    scores_list = np.concatenate(scores_list)
     print('[scores_list]', scores_list.shape)
-    np.save('TKGModel_scores_list', scores_list)
+    np.save(scores_filename, scores_list)
     return logs
 
 def display(model, sample, ground_truth, predicted_times, phase, offset1, offset2, edict=None, rdict=None):
@@ -338,11 +346,11 @@ if __name__ == '__main__':
     exp = Experiment(args)
     if args.do_valid:
         print('[1]')
-        metrics = run(exp, examples=exp.valid_examples)
+        metrics = run(exp, examples=exp.valid_examples, scores_filename='TKGModel_valid_scores')
     elif args.evaluate_train:
         print('[2]')
-        metrics = run(exp, examples=exp.train_examples)
+        metrics = run(exp, examples=exp.train_examples, scores_filename='TKGModel_train_scores')
     else:
         print('[3]')
-        metrics = run(exp)
+        metrics = run(exp, scores_filename='TKGModel_test_scores')
     exp.log_metrics('Test', metrics)

@@ -84,6 +84,10 @@ class KGEModel(nn.Module):
         else:
             raise ValueError('mode %s not supported' % mode)
 
+        print('[forward][head]', head.shape)
+        print('[forward][relation]', relation.shape)
+        print('[forward][tail]', tail.shape)
+        print('[forward][mode]', mode)
         return self.compute_score(head, relation, tail, mode)
 
     def compute_score(self, head, relation, tail, mode):
@@ -97,6 +101,7 @@ class KGEModel(nn.Module):
         
         if self.model_name in model_func:
             score = model_func[self.model_name](head, relation, tail, mode, embedding_range=self.embedding_range, gamma=self.gamma, modulus=self.modulus)
+            print('[compute_score]', score.shape)
         else:
             raise ValueError('model %s not supported' % self.model_name)
         return score
@@ -313,12 +318,16 @@ class KGEModel(nn.Module):
 
                         batch_size = positive_sample.size(0)
 
+                        print('[positive_sample, negative_sample, filter_bias, mode]', positive_sample.shape, negative_sample.shape, filter_bias.shape, mode)
                         score = model((positive_sample, negative_sample), mode)
+                        print('[score][1]', score.shape, score.min(), score.max())
                         score += filter_bias
+                        print('[score][2]', score.shape, score.min(), score.max())
                         scores_list.append(score.detach().cpu().numpy())
 
                         #Explicitly sort all the entities to ensure that there is no test exposure bias
                         argsort = torch.argsort(score, dim = 1, descending=True)
+                        print('[argsort]', argsort)
 
                         if mode == 'head-batch':
                             positive_arg = positive_sample[:, 0]
@@ -352,7 +361,7 @@ class KGEModel(nn.Module):
                 metrics[metric] = sum([log[metric] for log in logs])/len(logs)
 
             # print('[scores_list]', scores_list)
-            scores_list = np.concatenate(scores_list).flatten()
+            scores_list = np.concatenate(scores_list)
             print('[scores_list]', scores_list.shape)
             np.save('KGEModel_scores_list', scores_list)
 

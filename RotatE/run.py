@@ -338,6 +338,7 @@ def main(args):
         else:
             warm_up_steps = args.max_steps // 2
 
+    current_learning_rate = -1
     if args.init_checkpoint:
         # Restore model from checkpoint directory
         logging.info('Loading checkpoint %s...' % args.init_checkpoint)
