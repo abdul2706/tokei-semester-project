@@ -253,7 +253,7 @@ class KGEModel(nn.Module):
         return log
 
     @staticmethod
-    def test_step(model, test_triples, all_true_triples, args):
+    def test_step(model, test_triples, all_true_triples, args, scores_filename='KGEModel_test_scores'):
         '''
         Evaluate the model on test or valid datasets
         '''
@@ -309,7 +309,7 @@ class KGEModel(nn.Module):
             scores_list = []
 
             with torch.no_grad():
-                for test_dataset in test_dataset_list:
+                for test_idx, test_dataset in enumerate(test_dataset_list):
                     for positive_sample, negative_sample, filter_bias, mode in test_dataset:
                         if args.cuda:
                             positive_sample = positive_sample.cuda()
@@ -323,7 +323,8 @@ class KGEModel(nn.Module):
                         print('[score][1]', score.shape, score.min(), score.max())
                         score += filter_bias
                         print('[score][2]', score.shape, score.min(), score.max())
-                        scores_list.append(score.detach().cpu().numpy())
+                        if test_idx == 0:
+                            scores_list.append(score.detach().cpu().numpy())
 
                         #Explicitly sort all the entities to ensure that there is no test exposure bias
                         argsort = torch.argsort(score, dim = 1, descending=True)
@@ -363,6 +364,6 @@ class KGEModel(nn.Module):
             # print('[scores_list]', scores_list)
             scores_list = np.concatenate(scores_list)
             print('[scores_list]', scores_list.shape)
-            np.save('KGEModel_scores_list', scores_list)
+            np.save(scores_filename, scores_list)
 
         return metrics
