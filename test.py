@@ -69,9 +69,9 @@ def run(exp, examples=None, test_levels=False, test_time=False,
                 test_ranking=test_ranking, test_scoping=test_scoping,
                 scores_filename=scores_filename
             )
-            print('[phase]', phase)
-            print('[logs[phase]]')
-            print(logs[phase])
+            # print('[phase]', phase)
+            # print('[logs[phase]]')
+            # print(logs[phase])
 
             metrics[phase] = {
                 "dummy" : 0
@@ -132,13 +132,13 @@ def test_step(exp, test_dataset, sample_dates=None, triples2time=None,
     model = exp.model
     args = exp.args
     scores_list = []
-    print('[test_dataset.dataset]', type(test_dataset.dataset), len(test_dataset.dataset))
+    # print('[test_dataset.dataset]', type(test_dataset.dataset), len(test_dataset.dataset))
 
     for pos_sample, pos_interval, phase in test_dataset:
-        print('[phase]', phase)
-        print('[pos_sample, pos_interval]', pos_sample.shape, pos_interval.shape)
-        print('[pos_sample]', pos_sample)
-        print('[pos_interval]', pos_interval)
+        # print('[phase]', phase)
+        # print('[pos_sample, pos_interval]', pos_sample.shape, pos_interval.shape)
+        # print('[pos_sample]', pos_sample)
+        # print('[pos_interval]', pos_interval)
         pos_sample = pos_sample.to(device)
         pos_interval = pos_interval.to(device)
 
@@ -152,9 +152,9 @@ def test_step(exp, test_dataset, sample_dates=None, triples2time=None,
         if test_levels:
             s, p, o, _, _ = model((pos_sample, pos_interval, None, None), phase, args.entities_only)
             # save scores
-            print('[s, p, o]', s.shape, p.shape, o.shape)
+            # print('[s, p, o]', s.shape, p.shape, o.shape)
             scores = model.compute_scores(s, p, o, phase)
-            print('[scores.shape]', scores.shape)
+            # print('[scores.shape]', scores.shape)
             scores_list.append(scores.detach().cpu().numpy())
             predicted_times = model.activate(scores)
 
