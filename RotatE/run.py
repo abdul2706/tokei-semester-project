@@ -305,7 +305,8 @@ def main(args):
         logging.info('Parameter %s: %s, require_grad = %s' % (name, str(param.size()), str(param.requires_grad)))
 
     if args.cuda:
-        kge_model = kge_model.cuda()
+        device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+        kge_model = kge_model.to(device)
     
     if args.do_train:
         # Set training dataloader iterator

@@ -1,211 +1,210 @@
-R1	Increase police alert status
-R2	Demand change in leadership
-R3	Appeal for material cooperation
-R4	Accuse of aggression
-R5	Cooperate militarily
-R6	Reduce or stop military assistance
-R7	Violate ceasefire
-R8	Provide aid
-R9	Express intent to settle dispute
-R10	Engage in judicial cooperation
-R11	Expel or withdraw
-R12	Use as human shield
-R13	Reject proposal to meet, discuss, or negotiate
-R14	Make optimistic comment
-R15	Engage in negotiation
+R1	fight with artillery and tanks
+R2	Defy norms, law
+R3	Engage in judicial cooperation
+R4	Express intent to provide military protection or peacekeeping
+R5	Reduce or stop economic assistance
+R6	Express intent to yield
+R7	Reduce or stop military assistance
+R8	Ease economic sanctions, boycott, embargo
+R9	Return, release person(s)
+R10	Express intent to cooperate on judicial matters
+R11	Use unconventional violence
+R12	Make an appeal or request
+R13	Consult
+R14	Threaten with restrictions on political freedoms
+R15	Receive deployment of peacekeepers
 R16	Mobilize or increase armed forces
-R17	Engage in diplomatic cooperation
-R18	Rally support on behalf of
-R19	Express intent to provide military protection or peacekeeping
-R20	Accuse of war crimes
-R21	Engage in violent protest for policy change
-R22	Express intent to yield
-R23	Reject request for change in institutions, regime
-R24	Appeal for aid
-R25	Destroy property
-R26	Express intent to release persons or property
-R27	Demonstrate for policy change
-R28	Express intent to de-escalate military engagement
-R29	Acknowledge or claim responsibility
-R30	Engage in symbolic act
-R31	Demand meeting, negotiation
-R32	Demobilize armed forces
-R33	Use conventional military force
-R34	Accede to demands for change in policy
-R35	Ease administrative sanctions
-R36	Demand economic aid
-R37	Accuse of espionage, treason
-R38	Impose restrictions on political freedoms
-R39	Provide economic aid
-R40	Threaten to impose state of emergency or martial law
-R41	Share intelligence or information
-R42	Host a visit
-R43	Investigate
-R44	fight with small arms and light weapons
-R45	Express intent to cooperate on judicial matters
-R46	Refuse to yield
-R47	Demonstrate for leadership change
-R48	Declare truce, ceasefire
-R49	Express intent to cooperate economically
-R50	Increase military alert status
-R51	Demand intelligence cooperation
-R52	Express intent to provide military aid
-R53	Appeal for change in institutions, regime
-R54	Rally opposition against
-R55	Make statement
-R56	Express intent to institute political reform
-R57	Express intent to engage in diplomatic cooperation (such as policy support)
-R58	Mobilize or increase police power
-R59	Reduce relations
-R60	Give ultimatum
-R61	Conduct suicide, car, or other non-military bombing
-R62	Consult
-R63	Use tactics of violent repression
-R64	Forgive
-R65	Impose state of emergency or martial law
-R66	Accede to demands for rights
-R67	Impose administrative sanctions
-R68	Appeal to yield
-R69	Express intent to cooperate
-R70	Reject request or demand for political reform
-R71	Cooperate economically
-R72	Express intent to ease economic sanctions, boycott, or embargo
-R73	Express intent to accept mediation
-R74	Employ aerial weapons
-R75	Use unconventional violence
-R76	Reject request for military aid
-R77	Make a visit
-R78	Threaten with administrative sanctions
-R79	Return, release person(s)
-R80	Appeal for policy change
-R81	Express intent to change leadership
-R82	Demand diplomatic cooperation (such as policy support)
-R83	Appeal to engage in or accept mediation
-R84	find guilty or liable (legally)
-R85	Express intent to mediate
-R86	Accuse of human rights abuses
-R87	Demand that target yields
-R88	Return, release property
-R89	Demand de-escalation of military engagement
-R90	Demand easing of administrative sanctions
-R91	Demand military aid
-R92	Demand material cooperation
-R93	Engage in violent protest for leadership change
-R94	Investigate crime, corruption
-R95	Sexually assault
-R96	Express intent to meet or negotiate
-R97	Demonstrate military or police power
+R17	Ban political parties or politicians
+R18	Express intent to ease administrative sanctions
+R19	Appeal for material cooperation
+R20	Threaten
+R21	Demand de-escalation of military engagement
+R22	Defend verbally
+R23	Provide military protection or peacekeeping
+R24	Occupy territory
+R25	Provide humanitarian aid
+R26	Reject request for change in institutions, regime
+R27	Make optimistic comment
+R28	Appeal to others to settle dispute
+R29	Demonstrate or rally
+R30	Confiscate property
+R31	Appeal to engage in or accept mediation
+R32	Torture
+R33	Refuse to de-escalate military engagement
+R34	Express intent to accept mediation
+R35	Increase police alert status
+R36	Cooperate economically
+R37	Provide economic aid
+R38	Express intent to change leadership
+R39	Seize or damage property
+R40	Demand judicial cooperation
+R41	Appeal for economic aid
+R42	Engage in negotiation
+R43	Accede to demands for rights
+R44	Investigate crime, corruption
+R45	Express intent to provide economic aid
+R46	Engage in material cooperation
+R47	Reduce or break diplomatic relations
+R48	Express intent to de-escalate military engagement
+R49	Provide aid
+R50	Employ aerial weapons
+R51	Express intent to cooperate economically
+R52	Reject material cooperation
+R53	Reject military cooperation
+R54	Destroy property
+R55	Refuse to release persons or property
+R56	Threaten with military force
+R57	Engage in diplomatic cooperation
+R58	Appeal for rights
+R59	Demand diplomatic cooperation (such as policy support)
+R60	Praise or endorse
+R61	Coerce
+R62	Express intent to institute political reform
+R63	Yield
+R64	Appeal for humanitarian aid
+R65	Appeal for change in institutions, regime
+R66	find guilty or liable (legally)
+R67	Investigate
+R68	Demand material aid
+R69	Accuse of human rights abuses
+R70	Express intent to engage in material cooperation
+R71	Assassinate
+R72	Obstruct passage, block
+R73	Accuse of crime, corruption
+R74	Engage in mass killings
+R75	Kill by physical assault
+R76	Mediate
+R77	Demonstrate military or police power
+R78	Express intent to cooperate militarily
+R79	Reject proposal to meet, discuss, or negotiate
+R80	fight with small arms and light weapons
+R81	Cooperate militarily
+R82	Deny responsibility
+R83	Complain officially
+R84	Demand meeting, negotiation
+R85	Impose administrative sanctions
+R86	Retreat or surrender militarily
+R87	Express intent to mediate
+R88	Sexually assault
+R89	Consider policy option
+R90	Grant diplomatic recognition
+R91	Reject economic cooperation
+R92	Demand intelligence cooperation
+R93	Use conventional military force
+R94	Appeal for economic cooperation
+R95	Accede to demands for change in policy
+R96	Arrest, detain, or charge with legal action
+R97	Provide military aid
 R98	Reject plan, agreement to settle dispute
-R99	Mediate
-R100	Appeal for judicial cooperation
-R101	Engage in material cooperation
-R102	Reject material cooperation
-R103	Threaten with restrictions on political freedoms
-R104	Arrest, detain, or charge with legal action
-R105	Apologize
-R106	Refuse to ease administrative sanctions
-R107	Expel or deport individuals
-R108	Occupy territory
-R109	Decline comment
-R110	Retreat or surrender militarily
-R111	Express intent to allow international involvement (non-mediation)
-R112	Seize or damage property
-R113	Obstruct passage, block
-R114	Reduce or stop material aid
-R115	Reduce or stop economic assistance
-R116	Demand settling of dispute
-R117	Halt negotiations
-R118	Demand material aid
-R119	Refuse to de-escalate military engagement
-R120	Threaten non-force
-R121	Bring lawsuit against
-R122	Conduct strike or boycott
-R123	Demand humanitarian aid
-R124	Yield
-R125	Express intent to provide humanitarian aid
-R126	Ease state of emergency or martial law
-R127	Demand change in institutions, regime
-R128	Protest violently, riot
-R129	Accede to demands for change in institutions, regime
-R130	Refuse to ease economic sanctions, boycott, or embargo
-R131	Impose curfew
-R132	Kill by physical assault
-R133	Make pessimistic comment
-R134	Demand rights
-R135	Provide military protection or peacekeeping
-R136	Consider policy option
-R137	Appeal for humanitarian aid
-R138	Express intent to provide economic aid
-R139	Provide military aid
-R140	Provide humanitarian aid
-R141	Express intent to ease administrative sanctions
-R142	Appeal for diplomatic cooperation (such as policy support)
-R143	Appeal for easing of economic sanctions, boycott, or embargo
-R144	Discuss by telephone
-R145	Accuse of crime, corruption
-R146	Assassinate
-R147	Make empathetic comment
-R148	Criticize or denounce
-R149	Appeal to others to meet or negotiate
-R150	Demand judicial cooperation
-R151	Conduct hunger strike
-R152	Torture
-R153	Threaten to reduce or break relations
-R154	fight with artillery and tanks
-R155	Appeal to others to settle dispute
-R156	Reject military cooperation
-R157	Ease economic sanctions, boycott, embargo
-R158	Express intent to engage in material cooperation
-R159	Reject
-R160	Carry out suicide bombing
-R161	Expel or withdraw peacekeepers
-R162	Threaten with repression
-R163	Accede to requests or demands for political reform
-R164	Appeal for economic aid
-R165	Make an appeal or request
-R166	Threaten to reduce or stop aid
-R167	Accuse
-R168	Appeal for economic cooperation
-R169	Confiscate property
-R170	Appeal for change in leadership
-R171	Reduce or break diplomatic relations
-R172	Impose embargo, boycott, or sanctions
-R173	Coerce
-R174	Ban political parties or politicians
-R175	Meet at a 'third' location
-R176	Physically assault
-R177	Defend verbally
-R178	Express intent to provide material aid
-R179	Defy norms, law
-R180	Demonstrate or rally
-R181	Demand
-R182	Appeal for rights
-R183	Reject judicial cooperation
-R184	Complain officially
-R185	Threaten with political dissent, protest
-R186	Engage in mass killings
-R187	Appeal for military aid
-R188	Accede to demands for change in leadership
-R189	Attempt to assassinate
-R190	Express intent to change institutions, regime
-R191	Abduct, hijack, or take hostage
-R192	Grant diplomatic recognition
-R193	Reduce or stop humanitarian assistance
-R194	Reject economic cooperation
-R195	Threaten
-R196	Express intent to cooperate militarily
-R197	Refuse to release persons or property
-R198	Demand release of persons or property
-R199	Express accord
-R200	Impose blockade, restrict movement
-R201	Deny responsibility
-R202	Receive deployment of peacekeepers
-R203	Threaten with military force
-R204	Appeal for release of persons or property
-R205	Threaten with sanctions, boycott, embargo
-R206	Appeal for easing of administrative sanctions
-R207	Praise or endorse
-R208	Appeal for de-escalation of military engagement
-R209	Sign formal agreement
-R210	Appeal for intelligence
-R211	Grant asylum
+R99	Threaten to impose state of emergency or martial law
+R100	Accuse of espionage, treason
+R101	Acknowledge or claim responsibility
+R102	Express intent to provide humanitarian aid
+R103	Reduce or stop material aid
+R104	Express intent to allow international involvement (non-mediation)
+R105	Host a visit
+R106	Threaten with repression
+R107	Demonstrate for leadership change
+R108	Demand economic aid
+R109	Express intent to engage in diplomatic cooperation (such as policy support)
+R110	Appeal for intelligence
+R111	Appeal for military aid
+R112	Demand material cooperation
+R113	Appeal for policy change
+R114	Forgive
+R115	Demand release of persons or property
+R116	Reject
+R117	Accede to demands for change in leadership
+R118	Appeal for easing of economic sanctions, boycott, or embargo
+R119	Ease administrative sanctions
+R120	Declare truce, ceasefire
+R121	Physically assault
+R122	Express intent to release persons or property
+R123	Engage in violent protest for leadership change
+R124	Impose embargo, boycott, or sanctions
+R125	Appeal for diplomatic cooperation (such as policy support)
+R126	Engage in symbolic act
+R127	Threaten non-force
+R128	Accuse of aggression
+R129	Apologize
+R130	Demonstrate for policy change
+R131	Sign formal agreement
+R132	Accuse of war crimes
+R133	Demand military aid
+R134	Bring lawsuit against
+R135	Increase military alert status
+R136	Protest violently, riot
+R137	Appeal for change in leadership
+R138	Demand rights
+R139	Demand easing of administrative sanctions
+R140	Reject request or demand for political reform
+R141	Express intent to ease economic sanctions, boycott, or embargo
+R142	Make a visit
+R143	Make statement
+R144	Impose state of emergency or martial law
+R145	Express intent to change institutions, regime
+R146	Express intent to settle dispute
+R147	Conduct strike or boycott
+R148	Ease state of emergency or martial law
+R149	Reduce relations
+R150	Impose restrictions on political freedoms
+R151	Demand humanitarian aid
+R152	Impose curfew
+R153	Express intent to meet or negotiate
+R154	Threaten with sanctions, boycott, embargo
+R155	Demand change in leadership
+R156	Appeal for easing of administrative sanctions
+R157	Demand settling of dispute
+R158	Share intelligence or information
+R159	Refuse to ease economic sanctions, boycott, or embargo
+R160	Meet at a 'third' location
+R161	Accede to demands for change in institutions, regime
+R162	Reject request for military aid
+R163	Expel or deport individuals
+R164	Appeal for de-escalation of military engagement
+R165	Express intent to cooperate
+R166	Engage in violent protest for policy change
+R167	Expel or withdraw
+R168	Reduce or stop humanitarian assistance
+R169	Threaten to reduce or stop aid
+R170	Refuse to yield
+R171	Appeal for aid
+R172	Abduct, hijack, or take hostage
+R173	Use as human shield
+R174	Appeal to yield
+R175	Violate ceasefire
+R176	Appeal for judicial cooperation
+R177	Use tactics of violent repression
+R178	Return, release property
+R179	Decline comment
+R180	Make pessimistic comment
+R181	Make empathetic comment
+R182	Discuss by telephone
+R183	Mobilize or increase police power
+R184	Demand
+R185	Rally support on behalf of
+R186	Reject judicial cooperation
+R187	Appeal to others to meet or negotiate
+R188	Threaten to reduce or break relations
+R189	Conduct hunger strike
+R190	Halt negotiations
+R191	Express accord
+R192	Expel or withdraw peacekeepers
+R193	Refuse to ease administrative sanctions
+R194	Criticize or denounce
+R195	Accede to requests or demands for political reform
+R196	Demand that target yields
+R197	Conduct suicide, car, or other non-military bombing
+R198	Express intent to provide military aid
+R199	Demand change in institutions, regime
+R200	Express intent to provide material aid
+R201	Demobilize armed forces
+R202	Accuse
+R203	Rally opposition against
+R204	Threaten with political dissent, protest
+R205	Carry out suicide bombing
+R206	Impose blockade, restrict movement
+R207	Attempt to assassinate
+R208	Grant asylum
+R209	Give ultimatum
+R210	Appeal for release of persons or property

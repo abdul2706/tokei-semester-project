@@ -318,17 +318,17 @@ class KGEModel(nn.Module):
 
                         batch_size = positive_sample.size(0)
 
-                        print('[positive_sample, negative_sample, filter_bias, mode]', positive_sample.shape, negative_sample.shape, filter_bias.shape, mode)
+                        # print('[positive_sample, negative_sample, filter_bias, mode]', positive_sample.shape, negative_sample.shape, filter_bias.shape, mode)
                         score = model((positive_sample, negative_sample), mode)
-                        print('[score][1]', score.shape, score.min(), score.max())
+                        # print('[score][1]', score.shape, score.min(), score.max())
                         score += filter_bias
-                        print('[score][2]', score.shape, score.min(), score.max())
+                        # print('[score][2]', score.shape, score.min(), score.max())
                         if test_idx == 0:
                             scores_list.append(score.detach().cpu().numpy())
 
                         #Explicitly sort all the entities to ensure that there is no test exposure bias
                         argsort = torch.argsort(score, dim = 1, descending=True)
-                        print('[argsort]', argsort)
+                        # print('[argsort]', argsort)
 
                         if mode == 'head-batch':
                             positive_arg = positive_sample[:, 0]
