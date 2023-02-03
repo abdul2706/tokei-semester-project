@@ -192,11 +192,10 @@ def test_step(exp, test_dataset, sample_dates=None, triples2time=None,
                 interval = model.scope.clip(st, en)
                 truth = model.scope.clip(min({t.start for t in truths}), max({t.end for t in truths}))
                 
-                if st or en:
-                    jacc =  model.scope.jaccard(interval, truth, phase)
-                    logs[phase][15] += jacc
-                else:
-                    jacc = "N/A"
+                jacc = "N/A"
+                # if st or en:
+                #     jacc =  model.scope.jaccard(interval, truth, phase)
+                #     logs[phase][15] += jacc
                 hit = any({b.within(t, down_to=phase) for t in truths})
                 if hit:
                     logs[phase][22] += 1

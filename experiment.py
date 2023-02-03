@@ -147,6 +147,23 @@ def set_logger(args, log_file=None):
     logging.getLogger('').addHandler(console)
     logging.info("Set logger to %s" % log_file)
 
+# def load_dict(filepath):
+#     with open(filepath, encoding='utf-8') as fin:
+#         item2id = bidict()
+#         i = 0
+#         for line in fin:
+#             try:
+#                 key, value = line.strip().split('\t', 1)
+#             except:
+#                 raise ValueError(line)
+#             try:
+#                 item2id[value] = int(key)
+#                 i = item2id[value] + 1
+#             except ValueError:
+#                 item2id[key] = i
+#                 i += 1
+#     return item2id
+
 def load_dict(filepath):
     with open(filepath, encoding='utf-8') as fin:
         item2id = bidict()
@@ -156,12 +173,8 @@ def load_dict(filepath):
                 key, value = line.strip().split('\t', 1)
             except:
                 raise ValueError(line)
-            try:
-                item2id[value] = int(key)
-                i = item2id[value] + 1
-            except ValueError:
-                item2id[key] = i
-                i += 1
+            item2id[key] = i
+            i += 1
     return item2id
 
 def read_triples(file_path, entity2id, relation2id):
@@ -374,7 +387,7 @@ class Experiment:
         )
 
         if self.args.init_model_path:
-            checkpoint = torch.load(os.path.join(self.args.init_model_path, 'checkpoint'))
+            checkpoint = torch.load(os.path.join(self.args.init_model_path, 'checkpoint'), map_location=device)
             try:
                 # current_learning_rate = checkpoint['current_learning_rate']
                 # warm_up_steps = checkpoint['warm_up_steps']

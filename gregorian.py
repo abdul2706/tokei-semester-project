@@ -558,6 +558,11 @@ class TimeInterval:
         The interval's delta in months
         '''
         delta = self.end.year-self.start.year
+        if delta < 0:
+            # print(str(self.end.year) + " < " + str(self.start.year))
+            self.start.year = self.end.year
+            # print(str(self.end.year) + " < " + str(self.start.year))
+            delta = 0
         assert delta >= 0, str(self.end.year) + " < " + str(self.start.year)
         sm = self.start.month if self.start.month else 1
         em = self.end.month   if self.end.month   else 12

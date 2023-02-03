@@ -199,18 +199,17 @@ def load_dict(filepath):
                 key, value = line.strip().split('\t', 1)
             except:
                 raise ValueError(line)
-            try:
-                item2id[value] = int(key)
-                i = item2id[value] + 1
-            except ValueError:
-                item2id[key] = i
-                i += 1
+            item2id[key] = i
+            i += 1
     return item2id
 
 def read_temporal_triples(filepath, entity2id=None, relation2id=None):
     '''
     Read temporal quads and map them into ids.
     '''
+    print('[filepath]', filepath)
+    print('[entity2id]', entity2id)
+    print('[relation2id]', relation2id)
     triples = []
     with open(filepath, encoding='utf-8') as fin:
         for line in fin:
