@@ -1,7 +1,9 @@
 #!/usr/bin/python3
+import gc
 import logging, sys
 import torch
 import numpy as np
+from tqdm import tqdm
 from collections import defaultdict
 from torch.utils.data import DataLoader
 from experiment import parse_args, Experiment
@@ -134,7 +136,7 @@ def test_step(exp, test_dataset, sample_dates=None, triples2time=None,
     scores_list = []
     # print('[test_dataset.dataset]', type(test_dataset.dataset), len(test_dataset.dataset))
 
-    for pos_sample, pos_interval, phase in test_dataset:
+    for pos_sample, pos_interval, phase in tqdm(test_dataset, total=len(test_dataset), leave=True):
         # print('[phase]', phase)
         # print('[pos_sample, pos_interval]', pos_sample.shape, pos_interval.shape)
         # print('[pos_sample]', pos_sample)
@@ -311,12 +313,14 @@ def test_step(exp, test_dataset, sample_dates=None, triples2time=None,
                     logs[phase][14] += (valid_triples*nts_ranking-valid_triples*ts_ranking).sum().item()
                     logs[phase][14] += (valid_triples*nto_ranking-valid_triples*to_ranking).sum().item()
 
-
+        gc.collect()
         batch += 1
         #print(batch, logs[phase])
+
     # print('[scores_list]', scores_list)
     scores_list = np.concatenate(scores_list)
     print('[scores_list]', scores_list.shape)
+    print('[scores_filename]', scores_filename)
     np.save(scores_filename, scores_list)
     return logs
 
